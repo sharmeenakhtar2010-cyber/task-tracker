@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Task Tracker</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>My Task Tracker</h1>
+
+        <form method="POST">
+            <input type="text" name="task" placeholder="Enter a task..." required>
+            <button type="submit">Add</button>
+        </form>
+
+        <ul>
+            {% for task in tasks %}
+                <li>
+                    {{ task }}
+                    <a href="/delete/{{ loop.index0 }}">❌</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>
